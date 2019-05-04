@@ -1,0 +1,32 @@
+language: generic
+
+dist: trusty
+
+script:
+  - docker build -t ws-port-scanner .
+
+before_deploy:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+deploy:
+  - provider: script
+    skip_cleanup: true
+    on:
+      branch: develop
+    script: >-
+      docker tag ws-port-scanner siwecos/ws-port-scanner:develop &&
+      docker push siwecos/ws-port-scanner:develop
+  - provider: script
+    skip_cleanup: true
+    on:
+      branch: master
+    script: >-
+      docker tag ws-port-scanner siwecos/ws-port-scanner:latest &&
+      docker push siwecos/ws-port-scanner:latest
+  - provider: script
+    skip_cleanup: true
+    on:
+      tags: true
+    script: >-
+      docker tag ws-port-scanner siwecos/ws-port-scanner:$TRAVIS_TAG &&
+      docker push siwecos/ws-port-scanner:$TRAVIS_TAG
