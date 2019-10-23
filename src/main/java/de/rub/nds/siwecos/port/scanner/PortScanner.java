@@ -33,8 +33,8 @@ public class PortScanner {
     private final String host;
 
     public PortScanner(String host) {
-        host = host.replaceAll("https://", "");
-        host = host.replaceAll("http://", "");
+        host = host.replaceAll("^https?://", "");
+        host = host.replaceAll("[:/].*$", "");
 
         this.host = host;
     }
