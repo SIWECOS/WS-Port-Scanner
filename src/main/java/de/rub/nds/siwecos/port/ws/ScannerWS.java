@@ -42,6 +42,10 @@ public class ScannerWS {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response startScan(ScanRequest request) throws URISyntaxException {
         LOGGER.info("Received a request to scan: " + request.getUrl());
+        if (request.getCallbackurls() == null || request.getCallbackurls().length == 0) {
+            LOGGER.warn("No callback urls provided");
+            return Response.status(Response.Status.BAD_REQUEST).entity("No callback urls provided").type(MediaType.TEXT_PLAIN_TYPE).build();
+        }
         PoolManager
                 .getInstance()
                 .getService()
