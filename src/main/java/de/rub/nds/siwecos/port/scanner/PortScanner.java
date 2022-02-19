@@ -132,6 +132,9 @@ public class PortScanner {
                     case 194:
                         portScannerReport.setIrcIsOpen(true);
                         break;
+                    case 445:
+                        portScannerReport.setSmbIsOpen(true);
+                        break;
                     case 1433:
                         portScannerReport.setMsSqlIsOpen(true);
                         break;
@@ -140,6 +143,10 @@ public class PortScanner {
                         break;
                     case 3389:
                         portScannerReport.setRdpIsOpen(true);
+                        break;
+                    case 5800:
+                    case 5900:
+                        portScannerReport.setVncIsOpen(true);
                         break;
                     case 80: // HTTP
                     case 443: // HTTPS

@@ -120,6 +120,8 @@ public class PortScannerCallback implements Runnable {
         resultList.add(getMySqlIsOpen(report));
         resultList.add(getRdpIsOpen(report));
         resultList.add(getTelnetIsOpen(report));
+        resultList.add(getVncIsOpen(report));
+        resultList.add(getSmbIsOpen(report));
 
         int max = 100;
         boolean hasError = false;
@@ -194,5 +196,15 @@ public class PortScannerCallback implements Runnable {
     private TestResult getIrcIsOpen(PortScannerReport report) {
         return new TestResult("IRC", report.getIrcIsOpen() == null, null, report.getIrcIsOpen() == Boolean.TRUE ? 0
                 : 100, !(report.getIrcIsOpen() == Boolean.TRUE) ? "success" : "warning", null);
+    }
+
+    private TestResult getVncIsOpen(PortScannerReport report) {
+        return new TestResult("VNC", report.getVncIsOpen() == null, null, report.getVncIsOpen() == Boolean.TRUE ? 0
+                : 100, !(report.getVncIsOpen() == Boolean.TRUE) ? "success" : "warning", null);
+    }
+
+    private TestResult getSmbIsOpen(PortScannerReport report) {
+        return new TestResult("SMB", report.getSmbIsOpen() == null, null, report.getSmbIsOpen() == Boolean.TRUE ? 0
+                : 100, !(report.getSmbIsOpen() == Boolean.TRUE) ? "success" : "warning", null);
     }
 }

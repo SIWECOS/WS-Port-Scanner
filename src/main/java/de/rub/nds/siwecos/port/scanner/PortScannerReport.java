@@ -32,6 +32,8 @@ public class PortScannerReport {
     private Boolean rdpIsOpen = false;
     private Boolean msSqlIsOpen = false;
     private Boolean ircIsOpen = false;
+    private Boolean vncIsOpen = false;
+    private Boolean smbIsOpen = false;
 
     private List<PortResult> questionableResultList;
 
@@ -114,4 +116,21 @@ public class PortScannerReport {
     public void setIrcIsOpen(Boolean ircIsOpen) {
         this.ircIsOpen = ircIsOpen;
     }
+	
+    public Boolean getVncIsOpen() {
+        return VncIsOpen;
+    }
+
+    public void setVncIsOpen(Boolean VncIsOpen) {
+        this.VncIsOpen = VncIsOpen;
+    }
+
+    public Boolean getSmbIsOpen() {
+        return SmbIsOpen;
+    }
+
+    public void setSmbIsOpen(Boolean SmbIsOpen) {
+        this.SmbIsOpen = SmbIsOpen;
+    }
+	
 }
