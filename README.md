@@ -78,7 +78,21 @@ An example output may look like this:
     "scoreType" : "success",
     "testDetails" : null
   }, {
+    "name" : "SMB",
+    "hasError" : false,
+    "errorMessage" : null,
+    "score" : 100,
+    "scoreType" : "success",
+    "testDetails" : null
+  }, {
     "name" : "TELNET",
+    "hasError" : false,
+    "errorMessage" : null,
+    "score" : 100,
+    "scoreType" : "hidden",
+    "testDetails" : null
+  }, {
+    "name" : "VNC",
     "hasError" : false,
     "errorMessage" : null,
     "score" : 100,
@@ -96,4 +110,6 @@ An example output may look like this:
 | RDP				                  | Checks if the port for RDP is open         |
 | MSSQL						          | Checks if the port for MS-SQL is open      |
 | MYSQL							      | Checks if the port for MY-SQL is open      |
+| SMB							      | Checks if the port for SMB is open         |
+| VNC							      | Checks if the port for VNC is open         |
 
